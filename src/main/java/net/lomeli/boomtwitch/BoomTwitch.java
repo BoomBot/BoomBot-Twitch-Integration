@@ -10,9 +10,11 @@ import net.lomeli.boombot.api.events.bot.InitEvent;
 import net.lomeli.boombot.api.events.bot.PostInitEvent;
 import net.lomeli.boombot.api.events.bot.PreInitEvent;
 import net.lomeli.boombot.api.events.bot.data.DataEvent;
+import net.lomeli.boombot.api.events.registry.RegisterCommandEvent;
 import net.lomeli.boombot.api.nbt.NBTTagBase;
 import net.lomeli.boombot.api.nbt.NBTTagCompound;
 import net.lomeli.boombot.api.util.Logger;
+import net.lomeli.boomtwitch.commands.SetKeyCommand;
 import net.lomeli.boomtwitch.lib.PostHelper;
 import net.lomeli.boomtwitch.twitch.ApiResponse;
 
@@ -51,6 +53,11 @@ public class BoomTwitch {
                 log.debug("%s is %s playing %s", "PlayHearthstone", response.getStream() == null ? "Offline" : "Online",
                         response.getStream() == null ? "nothing" : response.getStream().getGame());
         }
+    }
+
+    @Event.EventHandler
+    public void commandRegisterEvent(RegisterCommandEvent event) {
+        event.getCommandRegistry().addCommand(INSTANCE, new SetKeyCommand());
     }
 
     @Event.EventHandler
