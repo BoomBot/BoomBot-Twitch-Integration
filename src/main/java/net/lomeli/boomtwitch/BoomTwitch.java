@@ -32,15 +32,18 @@ public class BoomTwitch {
     @Addon.Event
     public void preInit(PreInitEvent event) {
         log = new Logger(event.getAddon().addonID());
+        log.info("Pre-Init");
         BoomAPI.eventRegistry.registerEventHandler(INSTANCE);
     }
 
     @Addon.Event
     public void initEvent(InitEvent event) {
+        log.info("Init");
     }
 
     @Addon.Event
     public void post(PostInitEvent event) {
+        log.info("Post-Init");
         if (keyFlag) {
             ApiResponse response = PostHelper.getStreamInfo("PlayHearthstone", twitchClientKey);
             if (response == null) log.error("Could not get info on test channel");
@@ -65,7 +68,6 @@ public class BoomTwitch {
         twitchClientKey = addonData.hasTag(TWITCH_KEY, NBTTagBase.TagType.TAG_STRING) ? addonData.getString(TWITCH_KEY) : "";
         delay = addonData.hasTag(DELAY_KEY, NBTTagBase.TagType.TAG_LONG) ? addonData.getLong(DELAY_KEY) : 60000;
         keyFlag = !Strings.isNullOrEmpty(twitchClientKey);
-        log.debug(twitchClientKey);
     }
 
     @Event.EventHandler
