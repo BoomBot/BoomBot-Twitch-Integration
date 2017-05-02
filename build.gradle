@@ -1,9 +1,6 @@
 repositories {
     mavenCentral()
     jcenter()
-    maven {
-        url = "https://dl.bintray.com/lomeli12/maven/"
-    }
 }
 
 apply plugin: 'java'
