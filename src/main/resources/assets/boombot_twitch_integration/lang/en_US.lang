@@ -2,3 +2,5 @@ boombot_twitch_integration.setkey.permissions=You don't have sufficient permissi
 boombot_twitch_integration.setkey.noargs=Please provide a key!
 boombot_twitch_integration.setkey.toomanyargs=There can only be one key!
 boombot_twitch_integration.setkey=Twitch API key set!
+boombot_twitch_integration.announcement=@everyone, <@%s> is NOW LIVE at %s\nPlaying %s | %s | (%s)
+boombot_twitch_integration.announcement.mature= [MATURE]
