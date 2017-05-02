@@ -3,7 +3,8 @@ package net.lomeli.boomtwitch.twitch;
 public class ApiResponse {
     private Stream stream;
 
-    public ApiResponse(){}
+    public ApiResponse() {
+    }
 
     public Stream getStream() {
         return stream;
@@ -11,8 +12,10 @@ public class ApiResponse {
 
     public class Channel {
         private boolean mature;
-        private String broadcaster_language, url, game;
-        public Channel(){}
+        private String broadcaster_language, url, game, status;
+
+        public Channel() {
+        }
 
         public boolean isMature() {
             return mature;
@@ -29,6 +32,10 @@ public class ApiResponse {
         public String getGame() {
             return game;
         }
+
+        public String getStatus() {
+            return status;
+        }
     }
 
     public class Stream {
@@ -36,7 +43,8 @@ public class ApiResponse {
         private boolean is_playlist;
         private Channel channel;
 
-        public Stream(){}
+        public Stream() {
+        }
 
         public Channel getChannel() {
             return channel;
