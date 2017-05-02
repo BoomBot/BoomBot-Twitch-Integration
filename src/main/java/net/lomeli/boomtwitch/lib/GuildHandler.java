@@ -30,7 +30,7 @@ public class GuildHandler {
     }
 
     public String getUserChannel(String userID) {
-        return userChannelMap.containsKey(userID) ? userChannelMap.get(userID) : null;
+        return userChannelMap.get(userID);
     }
 
     public Set<String> getUsersRegistered() {
