@@ -18,11 +18,11 @@ import net.lomeli.boomtwitch.twitch.ApiResponse;
 
 public class PostHelper {
     public static final Gson GSON = new Gson();
+    public static final HttpClient httpClient = HttpClients.createMinimal();
 
     public static ApiResponse getStreamInfo(String channelName, String clientID) {
         if (Strings.isNullOrEmpty(channelName) || Strings.isNullOrEmpty(clientID)) return null;
         ApiResponse apiResponse = null;
-        HttpClient httpClient = HttpClients.createMinimal();
         HttpGet httpGet = new HttpGet("https://api.twitch.tv/kraken/streams/" + channelName);
         httpGet.setHeaders(new Header[]{
                 new BasicHeader("Accept", "application/vnd.twitchtv.v3+json"),

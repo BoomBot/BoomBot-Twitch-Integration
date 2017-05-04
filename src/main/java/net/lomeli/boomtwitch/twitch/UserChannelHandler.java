@@ -86,8 +86,8 @@ public class UserChannelHandler implements Runnable {
     }
 
     public void cacheClient(String guildID, String clientID) {
-        List<String> cache = Lists.newArrayList();
-        if (guildCache.get(guildID) != null) cache = guildCache.get(guildID);
+        List<String> cache = guildCache.get(guildID);
+        if (cache == null) Lists.newArrayList();
         cache.add(clientID);
         guildCache.put(guildID, cache);
     }
